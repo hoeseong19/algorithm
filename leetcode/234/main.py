@@ -1,13 +1,5 @@
 from typing import Optional, List
-
-# Definition for singly-linked list.
-
-
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
+from leetcode.utils.list_node import ListNode
 
 class Solution:
     def changeLinkedListToList(self, head: Optional[ListNode]) -> List[int]:
@@ -35,7 +27,7 @@ class Solution:
 
 solution = Solution()
 
-print(solution.isPalindrome(None) == False)
+print(solution.isPalindrome(None) == True)
 print(solution.isPalindrome(
     ListNode(1, ListNode(2, ListNode(2, ListNode(1))))) == True)
 print(solution.isPalindrome(ListNode(1, ListNode(2))) == False)
