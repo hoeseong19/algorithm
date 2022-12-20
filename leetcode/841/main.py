@@ -7,15 +7,17 @@ class Solution:
 
         list_is_visit = [False for _ in range(length_rooms)]
 
-        def dfs(room_nubmer):
-            list_is_visit[room_nubmer] = True
+        stack_room = [0]
 
-            list_key = rooms[room_nubmer]
+        while stack_room:
+            room_number = stack_room.pop()
 
-            while list_key:
-                dfs(list_key.pop())
+            list_is_visit[room_number] = True
 
-        dfs(0)
+            list_room_number = rooms[room_number]
+
+            while list_room_number:
+                stack_room.append(list_room_number.pop())
 
         return all(list_is_visit)
 
