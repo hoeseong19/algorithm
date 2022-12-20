@@ -1,3 +1,4 @@
+from collections import deque
 from typing import List
 
 
@@ -7,17 +8,17 @@ class Solution:
 
         list_is_visit = [False for _ in range(length_rooms)]
 
-        stack_room = [0]
+        q_room = deque([0])
 
-        while stack_room:
-            room_number = stack_room.pop()
+        while q_room:
+            room_number = q_room.popleft()
 
             list_is_visit[room_number] = True
 
             list_room_number = rooms[room_number]
 
             while list_room_number:
-                stack_room.append(list_room_number.pop())
+                q_room.append(list_room_number.pop())
 
         return all(list_is_visit)
 
